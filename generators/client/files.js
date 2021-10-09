@@ -22,6 +22,5 @@ module.exports = {
 };
 
 function writeFiles() {
-    // this.copy('_dummy.txt', 'dummy.txt');
     this.writeFilesToDisk(vueFiles, this, false, CURRENT_VUE_TEMPLATE_PATH);
 }
