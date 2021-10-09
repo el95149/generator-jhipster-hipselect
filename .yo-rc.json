@@ -1,0 +1,10 @@
+{
+  "generator-jhipster-blueprint": {
+    "promptValues": {
+      "githubName": "el95149",
+      "authorName": "Angelos Anagnostopoulos",
+      "authorEmail": "angelos@anagnostic.org",
+      "authorUrl": "https://anagnostic.org"
+    }
+  }
+}
