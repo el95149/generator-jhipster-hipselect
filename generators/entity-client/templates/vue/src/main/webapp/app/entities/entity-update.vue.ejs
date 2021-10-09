@@ -171,27 +171,27 @@ _%>
   <%_ if (relationship.relationshipManyToOne || (relationship.relationshipOneToOne && ownerSide && relationship.otherEntityUser)) { _%>
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('<%= translationKey %>')" for="<%= entityFileName %>-<%= relationshipName %>"><%= relationshipNameHumanized %></label>
-                        <v-select id="<%= entityFileName %>-<%= relationshipName %>-select" data-cy="<%= relationshipFieldName %>" name="<%= relationshipName %>"  v-model="<%= entityInstance %>.<%=relationshipFieldName %>" :options="<%=otherEntityNamePlural %>" label="<%=otherEntityField %>" >
+                        <v-select id="<%= entityFileName %>-<%= relationshipName %>-select" data-cy="<%= relationshipFieldName %>" name="<%= relationshipName %>"  v-model="<%= entityInstance %>.<%=relationshipFieldName %>" :options="<%=otherEntityNamePlural %>" label="<%=otherEntityField %>" <% if (relationshipRequired) { %>@input="$v.<%= entityInstance %>.<%= relationshipFieldName %>.$touch()"<% } %>>
                             <template #search="{attributes, events}">
-                                <input id="<%= entityFileName %>-<%= relationshipName %>" class="vs__search"  v-bind="attributes" v-on="events" <% if (relationshipRequired) { %> required<% } %>/>
+                                <input id="<%= entityFileName %>-<%= relationshipName %>" class="vs__search form-control"  v-bind="attributes" v-on="events"  <% if (relationshipRequired) { %> required :class="{'invalid': $v.<%= entityInstance %>.<%= relationshipFieldName %>.$invalid }"<% } %>/>
                             </template>
                         </v-select>
                     </div>
   <%_ } else if (relationship.relationshipOneToOne && ownerSide) { _%>
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('<%= translationKey %>')" for="<%= entityFileName %>-<%= relationshipName %>"><%= relationshipNameHumanized %></label>
-                        <v-select id="<%= entityFileName %>-<%= relationshipName %>-select" data-cy="<%= relationshipFieldName %>" name="<%= relationshipName %>"  v-model="<%= entityInstance %>.<%=relationshipFieldName %>" :options="<%=otherEntityNamePlural %>" label="<%=otherEntityField %>" >
+                        <v-select id="<%= entityFileName %>-<%= relationshipName %>-select" data-cy="<%= relationshipFieldName %>" name="<%= relationshipName %>"  v-model="<%= entityInstance %>.<%=relationshipFieldName %>" :options="<%=otherEntityNamePlural %>" label="<%=otherEntityField %>" <% if (relationshipRequired) { %>@input="$v.<%= entityInstance %>.<%= relationshipFieldName %>.$touch()"<% } %>>
                             <template #search="{attributes, events}">
-                                <input id="<%= entityFileName %>-<%= relationshipName %>" class="vs__search"  v-bind="attributes" v-on="events" <% if (relationshipRequired) { %> required<% } %>/>
+                                <input id="<%= entityFileName %>-<%= relationshipName %>" class="vs__search form-control"  v-bind="attributes" v-on="events" <% if (relationshipRequired) { %> required :class="{'invalid': $v.<%= entityInstance %>.<%= relationshipFieldName %>.$invalid }"<% } %>/>
                             </template>
                         </v-select>
                     </div>
   <%_ } else if (relationship.relationshipManyToMany && ownerSide) { _%>
                     <div class="form-group">
                         <label v-text="$t('<%= translationKey %>')" for="<%= entityFileName %>-<%= relationshipName %>"><%= relationshipNameHumanized %></label>
-                        <v-select id="<%= entityFileName %>-<%= relationshipName %>-select" data-cy="<%= relationshipFieldName %>" :multiple="true" name="<%= relationshipName %>"  v-if="<%=entityInstance %>.<%=relationshipFieldNamePlural %> !== undefined" v-model="<%=entityInstance %>.<%=relationshipFieldNamePlural %>" :options="<%=otherEntityNamePlural %>" label="<%=otherEntityField %>" >
+                        <v-select id="<%= entityFileName %>-<%= relationshipName %>-select" data-cy="<%= relationshipFieldName %>" :multiple="true" name="<%= relationshipName %>"  v-if="<%=entityInstance %>.<%=relationshipFieldNamePlural %> !== undefined" v-model="<%=entityInstance %>.<%=relationshipFieldNamePlural %>" :options="<%=otherEntityNamePlural %>" label="<%=otherEntityField %>" <% if (relationshipRequired) { %>@input="$v.<%= entityInstance %>.<%= relationshipFieldNamePlural %>.$touch()"<% } %>>
                             <template #search="{attributes, events}">
-                                <input id="<%= entityFileName %>-<%= relationshipName %>" class="vs__search"  v-bind="attributes" v-on="events" <% if (relationshipRequired) { %> required<% } %>/>
+                                <input id="<%= entityFileName %>-<%= relationshipName %>" class="vs__search form-control"  v-bind="attributes" v-on="events" <% if (relationshipRequired) { %> required :class="{'invalid': $v.<%= entityInstance %>.<%= relationshipFieldNamePlural %>.$invalid }"<% } %>/>
                             </template>
                         </v-select>
                     </div>
