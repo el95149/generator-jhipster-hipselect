@@ -4,7 +4,8 @@
 
 # Introduction
 
-This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
+This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application. 
+It replaces standard HTML 'select' elements, in Vue templates, with their [v-select](https://vue-select.org/) counterparts. 
 
 # Prerequisites
 

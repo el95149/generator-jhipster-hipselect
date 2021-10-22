@@ -1,7 +1,7 @@
 {
   "name": "generator-jhipster-hipselect",
   "version": "0.0.0",
-  "description": "Replaces standard HTML 'select' elements with v-select",
+  "description": "Replaces standard HTML 'select' elements, in Vue templates, with v-select",
   "keywords": [
     "yeoman-generator",
     "jhipster-blueprint",
